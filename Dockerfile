@@ -26,5 +26,6 @@ RUN npx prisma generate
 EXPOSE 3000
 
 # Ejecuta el script de espera
-RUN chmod +x wait-for-sql.sh
-CMD ["sh", "./wait-for-sql.sh"]
+RUN prisma migrate deploy
+
+RUN npm run dev
