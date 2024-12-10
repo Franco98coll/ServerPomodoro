@@ -1,5 +1,5 @@
 # Espera hasta que el servidor SQL esté listo
-timeout=300 # Cambia a 60 segundos (o más si es necesario)
+timeout=60 # Cambia a 60 segundos (o más si es necesario)
 count=0
 
 while ! nc -z sqlserver 1433; do

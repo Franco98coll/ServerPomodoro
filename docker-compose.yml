@@ -7,7 +7,7 @@ services:
     build: .
     ports:
       - "3000:3000"
-    command: npm start
+    command: sh ./wait-for-sql.sh && npm start
     volumes:
       - ./create_database.sql:/tmp/create_database.sql
       - .:/usr/src/app
