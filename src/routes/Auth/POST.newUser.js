@@ -30,4 +30,6 @@ app.post("/newUser", async (req, res) => {
     }
 });
 
+res.send('nuevo usuario');
+
 export default app;
