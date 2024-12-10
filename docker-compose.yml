@@ -1,21 +1,15 @@
 version: '3.8'
-
 services:
   app:
-    networks:
-      - default
     build: .
-    ports:
-      - "3000:3000"
-    command: sh ./wait-for-sql.sh && npm start
+    command: sh ./wait-for-sql.sh
     volumes:
       - ./create_database.sql:/tmp/create_database.sql
       - .:/usr/src/app
       - /usr/src/app/node_modules
-    depends_on:
-      - mysql
     environment:
-      - DATABASE_URL=${MYSQL_URL}
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
   mysql:
     image: mysql:latest
     environment:

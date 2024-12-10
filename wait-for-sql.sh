@@ -1,9 +1,10 @@
+#!/bin/sh
 
 # Espera hasta que el servidor MySQL esté listo
-timeout=300 # Aumenta el tiempo de espera a 600 segundos (10 minutos)
+timeout=600 # Aumenta el tiempo de espera a 600 segundos (10 minutos)
 count=0
 
-while ! nc -z mysql 3306; do
+while ! nc -z mysql.railway.internal 3306; do
   echo "Esperando a que MySQL esté listo..."
   sleep 2
   count=$((count + 2))
