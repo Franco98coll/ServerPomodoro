@@ -15,11 +15,11 @@ services:
     depends_on:
       - mysql
     environment:
-      - DATABASE_URL=${DATABASE_URL}
+      - DATABASE_URL=${MYSQL_URL}
   mysql:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
-      MYSQL_DATABASE: "tu_base_de_datos"
+      MYSQL_DATABASE: "Taskies"
     ports:
       - "3306:3306"
