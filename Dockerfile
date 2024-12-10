@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Asegúrate de que el archivo wait-for-mysql.sh tenga permisos de ejecución
-RUN chmod +x wait-for-mysql.sh
+RUN chmod +x wait-for-sql.sh
 
 # Genera el cliente Prisma
 RUN npx prisma generate
