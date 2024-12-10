@@ -23,4 +23,4 @@ RUN npx prisma generate
 EXPOSE 3000
 
 # Ejecuta el script de espera
-CMD ["sh", "./wait-for-mysql.sh"]
+CMD ["sh", "./wait-for-sql.sh"]
