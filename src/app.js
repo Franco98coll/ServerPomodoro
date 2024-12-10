@@ -8,7 +8,8 @@ app.use(express.json());
 const allowedOrigins = [
     'https://tomatempo.netlify.app',
     'http://localhost:3000',
-    'http://app:3000'
+    'http://app:3000',
+    'http://localhost:5173'
 ];
 
 app.use(cors({
