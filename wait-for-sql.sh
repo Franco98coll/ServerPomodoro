@@ -5,7 +5,7 @@ count=0
 while ! nc -z sqlserver 1433; do
   echo "Esperando a que SQL Server esté listo..."
   sleep 2
-  count=$((count + 15))
+  count=$((count + 1))
   if [ $count -ge $timeout ]; then
     echo "El tiempo de espera para SQL Server ha expirado."
     exit 1
