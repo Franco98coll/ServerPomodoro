@@ -20,6 +20,6 @@ services:
     image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
-      MYSQL_DATABASE: "Taskies"
+      MYSQL_DATABASE: "railway"
     ports:
       - "3306:3306"
