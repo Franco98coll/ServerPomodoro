@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  app:
+    networks:
+      - default
+    build: .
+    ports:
+      - "3000:3000"
+    command: sh ./wait-for-sql.sh && npm start
+    volumes:
+      - ./create_database.sql:/tmp/create_database.sql
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - sqlserver
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      user: sa
+      SA_PASSWORD: "${SA_PASSWORD}"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
