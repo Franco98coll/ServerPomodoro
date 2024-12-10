@@ -13,6 +13,9 @@ RUN npm install
 # Copia el resto de los archivos de tu proyecto al contenedor
 COPY . .
 
+# Asegúrate de que el archivo wait-for-mysql.sh tenga permisos de ejecución
+RUN chmod +x wait-for-mysql.sh
+
 # Genera el cliente Prisma
 RUN npx prisma generate
 
@@ -20,5 +23,4 @@ RUN npx prisma generate
 EXPOSE 3000
 
 # Ejecuta el script de espera
-RUN chmod +x wait-for-mysql.sh
 CMD ["sh", "./wait-for-mysql.sh"]
