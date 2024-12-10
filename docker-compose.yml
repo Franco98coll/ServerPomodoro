@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   app:
@@ -13,14 +13,13 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     depends_on:
-      - sqlserver
+      - mysql
     environment:
       - DATABASE_URL=${DATABASE_URL}
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+  mysql:
+    image: mysql:latest
     environment:
-      user: sa
-      SA_PASSWORD: "${SA_PASSWORD}"
-      ACCEPT_EULA: "Y"
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "tu_base_de_datos"
     ports:
-      - "1433:1433"
+      - "3306:3306"
