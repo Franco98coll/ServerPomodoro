@@ -11,4 +11,4 @@ else
 fi
 
 
-exec npm run dev
+exec npm run start
